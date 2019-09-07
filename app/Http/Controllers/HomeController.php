@@ -56,12 +56,12 @@ class HomeController extends Controller
                     $content .= file_get_contents($baseUrl . '/' . trim($link));
                 }
             }
-            Storage::disk('public')->put('video.txt',$content);
+            Storage::disk( 'public' )->put('video.txt',$content);
             $file_path = storage_path('app/public/video.txt');
             return response()->download($file_path,Arr::get($input,'video_new_name') . '.mp4');
         }catch (\Exception $exception){
             $validator->errors()->add('auth_url','链接解析失败,请重试！');
-            return redirect('home')->withErrors($validator)->withInput();
+            return redirect('home')->withErrors( $validator )->withInput();
         }
 
     }
