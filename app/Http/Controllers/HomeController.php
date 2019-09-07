@@ -43,7 +43,7 @@ class HomeController extends Controller
             'video_link.required' => '请输入视频链接！',
             'video_new_name.required' => '请输入保存视频的新名称！',
         ]);
-        if ($validator->fails()){
+        if ( $validator->fails() ){
             return redirect('home' )->withErrors($validator)->withInput();
         }
         $link_address = Arr::get( $input,'video_link');
