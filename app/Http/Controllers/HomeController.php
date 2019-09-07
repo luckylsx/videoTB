@@ -52,7 +52,7 @@ class HomeController extends Controller
         try{
             $links = file( $link_address );
             foreach ( $links  as $link ){
-                if ($link[0] != '#'){
+                if ( $link[0] != '#' ){
                     $content .= file_get_contents($baseUrl . '/' . trim($link));
                 }
             }
