@@ -47,7 +47,7 @@ class HomeController extends Controller
             return redirect('home' )->withErrors($validator)->withInput();
         }
         $link_address = Arr::get( $input,'video_link');
-        $baseUrl = trim(dirname($link_address,1));
+        $baseUrl = trim( dirname($link_address,1) );
         $content = '';
         try{
             $links = file( $link_address );
