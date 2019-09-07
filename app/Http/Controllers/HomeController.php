@@ -44,14 +44,14 @@ class HomeController extends Controller
             'video_new_name.required' => '请输入保存视频的新名称！',
         ]);
         if ($validator->fails()){
-            return redirect('home')->withErrors($validator)->withInput();
+            return redirect('home' )->withErrors($validator)->withInput();
         }
-        $link_address = Arr::get($input,'video_link');
+        $link_address = Arr::get( $input,'video_link');
         $baseUrl = trim(dirname($link_address,1));
         $content = '';
         try{
-            $links = file($link_address);
-            foreach ($links as $link){
+            $links = file( $link_address );
+            foreach ( $links  as $link ){
                 if ($link[0] != '#'){
                     $content .= file_get_contents($baseUrl . '/' . trim($link));
                 }
