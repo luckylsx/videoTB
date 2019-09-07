@@ -44,7 +44,7 @@ class HomeController extends Controller
             'video_new_name.required' => '请输入保存视频的新名称！',
         ]);
         if ( $validator->fails() ){
-            return redirect('home' )->withErrors($validator)->withInput();
+            return redirect('home' )->withErrors( $validator )->withInput();
         }
         $link_address = Arr::get( $input,'video_link');
         $baseUrl = trim( dirname($link_address,1) );
@@ -61,7 +61,7 @@ class HomeController extends Controller
             return response()->download($file_path,Arr::get($input,'video_new_name') . '.mp4');
         }catch (\Exception $exception){
             $validator->errors()->add('auth_url','链接解析失败,请重试！');
-            return redirect('home')->withErrors( $validator )->withInput();
+            return redirect('home' )->withErrors( $validator )->withInput();
         }
 
     }
