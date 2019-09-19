@@ -28,10 +28,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
     /**
      * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function video(Request $request)
     {
@@ -47,7 +48,7 @@ class HomeController extends Controller
             return redirect('home' )->withErrors( $validator )->withInput();
         }
         $link_address = Arr::get( $input,'video_link');
-        $baseUrl = trim( dirname($link_address,1) );
+        $baseUrl = trim( dirname( $link_address,1) );
         $content = '';
         try{
             $links = file( $link_address );
