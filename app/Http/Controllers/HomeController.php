@@ -38,7 +38,7 @@ class HomeController extends Controller
     {
         $input = $request->all();
         $validator = Validator::make( $input,[
-            'video_link' => 'required',
+            'video_link'        => 'required',
             'video_new_name' => 'required',
         ],[
             'video_link.required' => '请输入视频链接！',
