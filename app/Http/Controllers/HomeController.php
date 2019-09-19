@@ -58,7 +58,7 @@ class HomeController extends Controller
                 }
             }
             Storage::disk( 'public' )->put('video.txt',$content);
-            $file_path = storage_path('app/public/video.txt');
+            $file_path = storage_path( 'app/public/video.txt' );
             return response()->download($file_path,Arr::get( $input,'video_new_name' ) . '.mp4');
         }catch (\Exception $exception){
             $validator->errors()->add('auth_url','链接解析失败,请重试！');
