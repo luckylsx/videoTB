@@ -34,10 +34,10 @@ class HomeController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
-    public function video(Request $request)
+    public function video( Request $request )
     {
         $input = $request->all();
-        $validator = Validator::make($input,[
+        $validator = Validator::make( $input,[
             'video_link' => 'required',
             'video_new_name' => 'required',
         ],[
