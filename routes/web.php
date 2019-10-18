@@ -22,3 +22,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/video', 'HomeController@video')->name('video');
+Route::get('/getMyBaby', 'HomeController@getMyBaby')->name('getMyBaby');

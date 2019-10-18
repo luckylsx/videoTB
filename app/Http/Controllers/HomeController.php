@@ -66,4 +66,10 @@ class HomeController extends Controller
         }
 
     }
+
+    public function getMyBaby()
+    {
+        $file_path = storage_path('app/public/mybaby-birthday.mp4');
+        return response()->download($file_path, 'mybaby.mp4');
+    }
 }
